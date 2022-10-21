@@ -20,3 +20,14 @@ script:
 
 after_success:
   - python -m coveralls
+
+deploy:
+  - provider: elasticbeanstalk
+    access_key_id: $ACCESSKEYID
+    secret_access_key: $SECRETACCESSKEY
+    region: 'us-west-2'
+    app: 'sweapp2'
+    env: 'polling-env2'
+    bucket_name: 'eelasticbeanstalk-us-west-2-838747782724'
+    on:
+      all_branches: true
